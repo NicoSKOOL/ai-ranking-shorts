@@ -1,0 +1,15 @@
+{
+  "name": "ai-ranking-shorts",
+  "description": "Short-form video skills from AI Ranking.",
+  "owner": { "name": "AI Ranking", "url": "https://www.airankingskool.com" },
+  "plugins": [
+    {
+      "name": "shorts",
+      "source": "./plugins/shorts",
+      "description": "The Shorts Machine: scripts with comment keywords, Claude edits each short inside Tella (cuts, captions, animated cards, icons, sound), then schedules them to TikTok, Instagram and Facebook with comment-to-DM automations via Zernio.",
+      "version": "0.1.0",
+      "author": { "name": "AI Ranking" },
+      "license": "MIT"
+    }
+  ]
+}

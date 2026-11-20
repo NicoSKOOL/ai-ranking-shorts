@@ -1,0 +1,28 @@
+{
+ "_note": "Fetched on YOUR machine at setup. si = Simple Icons slug (cdn.simpleicons.org), domain = the site's favicon. Append only, never reorder (cell numbers are baked into finished videos). Add your own: drop <name>.png or .svg into ~/.config/ai-ranking-shorts/logo_masters/ and rerun.",
+ "logos": [
+  {"name": "claude", "si": "claude"}, {"name": "anthropic", "si": "anthropic"},
+  {"name": "chatgpt", "domain": "chatgpt.com"}, {"name": "openai", "domain": "openai.com"},
+  {"name": "gemini", "si": "googlegemini"}, {"name": "perplexity", "si": "perplexity"},
+  {"name": "google", "si": "google"}, {"name": "search_console", "si": "googlesearchconsole"},
+  {"name": "google_analytics", "si": "googleanalytics"}, {"name": "google_maps", "si": "googlemaps"},
+  {"name": "google_ads", "si": "googleads"}, {"name": "gmail", "si": "gmail"},
+  {"name": "google_sheets", "si": "googlesheets"}, {"name": "google_docs", "si": "googledocs"},
+  {"name": "bing", "domain": "bing.com"}, {"name": "youtube", "si": "youtube"},
+  {"name": "instagram", "si": "instagram"}, {"name": "tiktok", "si": "tiktok"},
+  {"name": "facebook", "si": "facebook"}, {"name": "x", "si": "x"},
+  {"name": "linkedin", "domain": "linkedin.com"}, {"name": "github", "si": "github"},
+  {"name": "notion", "si": "notion"}, {"name": "wordpress", "si": "wordpress"},
+  {"name": "webflow", "si": "webflow"}, {"name": "shopify", "si": "shopify"},
+  {"name": "wix", "si": "wix"}, {"name": "squarespace", "si": "squarespace"},
+  {"name": "cloudflare", "si": "cloudflare"}, {"name": "zapier", "si": "zapier"},
+  {"name": "make", "si": "make"}, {"name": "n8n", "si": "n8n"},
+  {"name": "canva", "domain": "canva.com"}, {"name": "figma", "si": "figma"},
+  {"name": "stripe", "si": "stripe"}, {"name": "slack", "domain": "slack.com"},
+  {"name": "hubspot", "si": "hubspot"}, {"name": "mailchimp", "si": "mailchimp"},
+  {"name": "yelp", "si": "yelp"}, {"name": "trustpilot", "si": "trustpilot"},
+  {"name": "semrush", "si": "semrush"}, {"name": "ahrefs", "domain": "ahrefs.com"},
+  {"name": "dataforseo", "domain": "dataforseo.com"}, {"name": "tella", "domain": "tella.tv"},
+  {"name": "zernio", "domain": "zernio.com"}, {"name": "skool", "domain": "skool.com"}
+ ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "shorts",
+  "description": "The Shorts Machine from AI Ranking: script, edit in Tella, schedule with comment automations.",
+  "version": "0.1.0",
+  "author": { "name": "AI Ranking" },
+  "homepage": "https://github.com/NicoSKOOL/ai-ranking-shorts",
+  "license": "MIT",
+  "repository": "https://github.com/NicoSKOOL/ai-ranking-shorts"
+}
