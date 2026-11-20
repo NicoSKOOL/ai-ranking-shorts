@@ -15,9 +15,12 @@ batch.json:
      "keyword": "WALLET",
      "link": "https://...",                # where the commenter is sent (must be real)
      "thing": "the free checklist",        # used in the DM: "Here you go! The free checklist"
-     "button": "Get the checklist"}        # DM button label, max 20 characters
+     "button": "Get the checklist"},       # DM button label, max 20 characters
+    {"id": "2", "file": "/path/short2.mp4",
+     "caption": "A short with no link: leave out keyword/link/thing/button."}
   ]
 }
+keyword and link are optional, but go together: a short without them is scheduled with no automation.
 Posting time, timezone, platforms and Zernio accounts come from the settings (/shorts:setup).
 
 What it does per short:
@@ -115,15 +118,18 @@ def main():
         h, m = map(int, t.split(":")) if t else (hh, mm)
         when = dt.datetime.combine(day0 + dt.timedelta(days=i), dt.time(h, m), tz)
         utc = when.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-        for k in ("file", "caption", "keyword", "link"):
+        for k in ("file", "caption"):
             if not s.get(k):
                 sys.exit(f"short {s.get('id', i + 1)}: missing '{k}'")
+        if bool(s.get("keyword")) != bool(s.get("link")):
+            sys.exit(f"short {s.get('id', i + 1)}: give both 'keyword' and 'link', or neither")
         if not os.path.exists(s["file"]):
             sys.exit(f"short {s['id']}: file not found {s['file']}")
         if "—" in s["caption"]:
             print(f"warning: short {s['id']} caption has an em dash")
         plan.append((s, when, utc))
-        print(f"#{s['id']:>3}  {when:%a %b %d %H:%M %Z}  {s['keyword']:<10} -> {s['link']}")
+        cta = f"{s['keyword']:<10} -> {s['link']}" if s.get("keyword") else "(no link, no automation)"
+        print(f"#{s['id']:>3}  {when:%a %b %d %H:%M %Z}  {cta}")
     print("platforms:", ", ".join(platforms))
     if dry:
         print("dry run: nothing uploaded or scheduled"); return
@@ -137,9 +143,9 @@ def main():
             url = json.loads(run(["zernio", "media:upload", small_enough(s["file"], tmp)]))["url"]
             post = json.loads(run(["zernio", "posts:create", "--text", s["caption"], "--accounts", ids,
                                    "--media", url, "--scheduledAt", utc]))["post"]
-            autos = {p: automation(cfg, key, p, accts[p], post["_id"], s) for p in platforms}
-            res.append({"id": s["id"], "post_id": post["_id"], "scheduled_utc": utc, "keyword": s["keyword"],
-                        "link": s["link"], "automations": autos})
+            autos = {p: automation(cfg, key, p, accts[p], post["_id"], s) for p in platforms} if s.get("keyword") else {}
+            res.append({"id": s["id"], "post_id": post["_id"], "scheduled_utc": utc, "keyword": s.get("keyword", ""),
+                        "link": s.get("link", ""), "automations": autos})
             print(f"#{s['id']} scheduled {utc} post {post['_id']} automations {len(autos)}")
     out = os.path.splitext(batch_path)[0] + ".result.json"
     json.dump(res, open(out, "w"), indent=2)
@@ -147,7 +153,7 @@ def main():
     if "tiktok" in platforms:
         print("\nTikTok bio links (change each day):")
         for r in res:
-            print(f"  {r['scheduled_utc'][:10]}  {r['link']}")
+            print(f"  {r['scheduled_utc'][:10]}  {r['link'] or '(no link that day)'}")
 
 
 if __name__ == "__main__":

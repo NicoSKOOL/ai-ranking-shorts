@@ -1,6 +1,6 @@
 ---
 name: post
-description: Use when edited shorts are approved and should go out, e.g. "schedule my shorts", "post these one a day", "set up the comment keywords", "approved, schedule them", or to check how the comment automations are doing. Exports from Tella, writes captions, schedules one short a day to TikTok, Instagram and Facebook (YouTube optional) through Zernio, and creates comment-to-DM automations for every post.
+description: Use when edited shorts are approved and should go out, e.g. "schedule my shorts", "post these one a day", "set up the comment keywords", "approved, schedule them", or to check how the comment automations are doing. Exports from Tella, writes captions, schedules one short a day to TikTok, Instagram and Facebook (YouTube optional) through Zernio, and creates comment-to-DM automations for every short that has a keyword.
 ---
 
 # Shorts Machine: post
@@ -18,7 +18,7 @@ For each approved short: `export_video` (`subtitles: true`, fps 30), then `get_e
 One caption per short, from what the short actually says (not the original script if they went off it):
 - Line 1: the hook, with an emoji at most.
 - The points, short lines or a short list.
-- `Comment KEYWORD and I'll send you <the thing>.`
+- `Comment KEYWORD and I'll send you <the thing>.` (only when the short has a keyword)
 - 3 to 5 relevant hashtags.
 - No em dashes. No "link in bio" (the automation handles it). Never a claim the video doesn't make.
 
@@ -30,7 +30,7 @@ Fill `batch.json` (from `/shorts:script`, or write it now):
  "shorts": [{"id": "1", "file": "/path/short_1.mp4", "caption": "...", "keyword": "AUDIT",
              "link": "https://...", "thing": "the free audit checklist", "button": "Get the checklist"}]}
 ```
-- `link` must be a real page; never invent one. No specific link: use `cta_default_link` from the settings.
+- `link` must be a real page; never invent one. A short with no link: leave out `keyword`, `link`, `thing` and `button`; it is scheduled with no automation. `keyword` and `link` always go together.
 - `button` is the DM button label, 20 characters max.
 - Order: time-sensitive news first; spread similar shorts apart (a week between two on the same topic).
 - `first_time` (optional) is for posting the first one later today.

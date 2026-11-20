@@ -1,6 +1,6 @@
 ---
 name: ideas
-description: Use when someone gives a website and wants short-form video (TikTok, Reels, Shorts) topics researched from it, e.g. "find shorts ideas for my site", "research my industry for shorts", "14 shorts from my website", "what questions should my shorts answer". Reads the site, pulls the People Also Ask questions for each service and the wider industry from DataWise, ranks them by search volume and writes 14 recordable scripts with hooks, comment keywords and real destination links. Needs the DataWise connector.
+description: Use when someone gives a website and wants short-form video (TikTok, Reels, Shorts) topics researched from it, e.g. "find shorts ideas for my site", "research my industry for shorts", "14 shorts from my website", "what questions should my shorts answer". Reads the site, pulls the People Also Ask questions for each service and the wider industry from DataWise, ranks them by search volume and writes 14 recordable scripts with hooks, plus comment keywords and real links where the site has something to send people to. Needs the DataWise connector.
 ---
 
 # Shorts Machine: ideas from a website
@@ -14,7 +14,7 @@ This skill never edits the `script` skill. It only reads its rules.
 - DataWise must be connected: look for tools named `datawise_people_also_ask` and `datawise_keyword_metrics` (any prefix). If missing, stop and say: "Connect DataWise first: in Claude Code run `/mcp` and sign in to DataWise; in the Claude app add the DataWise connector. It's included with AI Ranking."
 - Read `~/.config/ai-ranking-shorts/config.json` if it exists (`cta_default_link`, brand). If it does not exist, carry on and ask for a default link in step 2.
 - Read the `script` skill (the SKILL.md next to this folder, `../script/SKILL.md`), sections "3. Write each script" and "4. Deliver". Those rules and that format apply to everything written here.
-- If the `script` skill isn't installed (this skill was added on its own), use these rules instead: 25 to 50 seconds spoken (70 to 130 words); line 1 is the hook and names the topic; one point per line; plain words in their voice; no em dashes; no "link in bio"; end on `Comment KEYWORD and I'll send you <the thing>.`; one-word keywords, easy to spell, unique unless two shorts share a destination; mark every number, date or claim with `[CHECK: what to verify]`; never invent a link. Per short write: `<n>. <Title>` (they name the video this), `Keyword: X · Sends: <name> (<link>)`, `Screen: none | what to record`, the script one line per beat, then the [CHECK] notes.
+- If the `script` skill isn't installed (this skill was added on its own), use these rules instead: 25 to 50 seconds spoken (70 to 130 words); line 1 is the hook and names the topic; one point per line; plain words in their voice; no em dashes; no "link in bio"; with a destination, end on `Comment KEYWORD and I'll send you <the thing>.`, otherwise on the takeaway or `Follow for more on <topic>.`; one-word keywords, easy to spell, unique unless two shorts share a destination; mark every number, date or claim with `[CHECK: what to verify]`; never invent a link. Per short write: `<n>. <Title>` (they name the video this), `Keyword: X · Sends: <name> (<link>)` or `Keyword: none`, `Screen: none | what to record`, the script one line per beat, then the [CHECK] notes.
 
 ## 1. Read the website
 
@@ -51,7 +51,7 @@ Score each question:
 - **Searched**: volume of the question or its seed.
 - **Sells**: close to a paid service (cost, how long, is it worth it, X vs Y, do I need) beats trivia.
 - **Shortable**: answerable in 30 to 45 seconds with one clear point.
-- **Has a destination**: maps to one of the destinations. No destination, no short (fall back to `cta_default_link` or the booking/contact page).
+- **Has a destination** (a bonus, not a must): maps to one of the destinations. A strong question with no matching link still makes the cut; that short ends without a keyword.
 
 Pick 14 with this mix:
 - About 8 **service FAQs** (cost, timing, mistakes, comparisons, "do I need").
@@ -78,7 +78,7 @@ The hook names the topic in the first five words. Never a slow intro ("Hey guys,
 
 ## 5. Write and deliver
 
-Write all 14 with the `script` skill's rules (25 to 50 seconds, one point per line, `Comment KEYWORD and I'll send you ...`, one-word keywords, [CHECK] on every number, date or claim, never invent a link).
+Write all 14 with the `script` skill's rules (25 to 50 seconds, one point per line, `Comment KEYWORD and I'll send you ...` when there's a destination, one-word keywords, [CHECK] on every number, date or claim, never invent a link).
 
 Deliver in the `script` skill's format (one document plus `batch.json`), with this added under each short:
 

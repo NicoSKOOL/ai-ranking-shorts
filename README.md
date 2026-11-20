@@ -7,7 +7,7 @@
 ## What it does
 
 0. **`/shorts:ideas`** (optional) researches your website: it pulls the People Also Ask questions for your services and industry from DataWise, ranks them by search volume, and writes 14 scripts that answer what people actually search. Needs the DataWise connector.
-1. **`/shorts:script`** writes a batch of shorts. Every short gets a word-for-word script, a comment keyword and a real link it sends people to. Facts to verify are marked.
+1. **`/shorts:script`** writes a batch of shorts. Every short gets a word-for-word script with facts to verify marked. Shorts that point somewhere also get a comment keyword and a real link; shorts that just teach don't need one.
 2. **You record** them in one sitting in Tella.
 3. **`/shorts:edit`** edits each short inside Tella: cuts retakes and silences, builds its own animated visual idea (icons, real tool logos, mock screens, counters, sound effects), adds captions and the comment pill. Everything stays editable in Tella. You review every edit.
 4. **`/shorts:post`** exports, writes the captions, schedules one short a day to TikTok, Instagram and Facebook (YouTube optional) and sets up the comment automations:
