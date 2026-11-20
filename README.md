@@ -1,6 +1,6 @@
 # The Shorts Machine
 
-**Record once. Post every day.** Claude Code skills that turn one recording session into two weeks of short-form videos, edited inside Tella and scheduled with comment-to-DM automations.
+**Record once. Post every day.** Claude Code skills that turn one recording session into two weeks of short-form videos, edited inside [Tella](https://refer.tella.com/nicolas-gorrono) and scheduled with comment-to-DM automations through [Zernio](https://zernio.link/nicolas-gorrono).
 
 <!-- TODO before publishing: media/round1-vs-round2.gif (same short, first edit vs final) -->
 
@@ -27,8 +27,8 @@ Then run `/shorts:setup` once.
 ## What you need
 
 - **Claude Code** (terminal or desktop app).
-- **Tella** with its MCP connector. A paid Tella plan for exports. <!-- TODO verify current plan name -->
-- **Zernio** for scheduling and automations, with its CLI (`npm install -g @zernio/cli`). <!-- TODO verify pricing; last seen: first 2 accounts free, then $6/month each -->
+- **[Tella](https://refer.tella.com/nicolas-gorrono)** with its MCP connector. Exports need a paid plan: Pro is enough ($29/month, or $16/month billed yearly; 7-day free trial, no card).
+- **[Zernio](https://zernio.link/nicolas-gorrono)** for scheduling and automations, with its CLI (`npm install -g @zernio/cli`). First 2 accounts free, then $6/month each.
 - **ffmpeg**, **Python 3.9+** with Pillow, **curl**, and **Chrome** (only to build your logo sheet).
 - macOS or Linux. Windows users: run Claude Code in WSL.
 

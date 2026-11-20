@@ -28,8 +28,8 @@ Fix anything MISSING with the printed command before going on (ask before instal
 
 ## 2. Connectors
 
-- **Tella**: call a light Tella tool (`list_videos`). If Tella tools are not available, tell the member to connect Tella's MCP server in Claude (Tella's help docs give the address), then restart this skill. Editing and exports in Tella need a paid Tella plan; check the current plan names on tella.tv/pricing rather than quoting one.
-- **Zernio**: the CLI from step 1 must be logged in. If the Zernio connector is also available, use `profiles_list` and `accounts_list` from it; otherwise `zernio accounts:list`.
+- **Tella**: call a light Tella tool (`list_videos`). If Tella tools are not available, tell the member to connect Tella's MCP server in Claude (Tella's help docs give the address), then restart this skill. No Tella account yet? Sign up at https://refer.tella.com/nicolas-gorrono. Editing and exports in Tella need a paid Tella plan; check the current plan names on tella.com/pricing rather than quoting one.
+- **Zernio**: the CLI from step 1 must be logged in. No Zernio account yet? Sign up at https://zernio.link/nicolas-gorrono. If the Zernio connector is also available, use `profiles_list` and `accounts_list` from it; otherwise `zernio accounts:list`.
 
 ## 3. Settings
 
